@@ -1,0 +1,14 @@
+{
+  "name": "on-campus_rental_system",
+  "version": "1.0.0",
+  "description": "Team 12's On-Campus Rental System for Design Project D",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Seonghyeon Cho, Hyeongmin Oh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
