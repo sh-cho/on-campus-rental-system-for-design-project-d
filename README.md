@@ -1,6 +1,6 @@
-## On-campus rental system for Design Project D
+# On-campus rental system for Design Project D
 
-# How to start
+## How to start
 
 1. git clone https://github.com/sh-cho/on-campus-rental-system-for-design-project-d.git
 2. npm install
