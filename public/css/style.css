@@ -1,4 +1,13 @@
-body {
-	background-color: #ccc;
-	color: red;
+/*body {*/
+	/*background-color: #ffffff;*/
+	/*color: darkblue;*/
+/*}*/
+
+table {
+    display: table-row-group;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid black;
 }

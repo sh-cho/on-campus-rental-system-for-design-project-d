@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "express-session": "^1.15.6"
   },
   "repository": {
     "type": "git",

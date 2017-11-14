@@ -1,6 +1,7 @@
 var express = require('express');
+var session = require('express-session');
 var app = express();
-var router = require('./router/main')(app);
+var router = require('./router/router')(app);
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
