@@ -3,11 +3,62 @@
 	/*color: darkblue;*/
 /*}*/
 
-table {
-    display: table-row-group;
-	border-collapse: collapse;
+/*table {*/
+    /*display: table-row-group;*/
+	/*border-collapse: collapse;*/
+/*}*/
+
+/*th, td {*/
+	/*border: 1px solid black;*/
+/*}*/
+
+
+
+div.column-table {
+    /*float: left;*/
 }
 
-th, td {
-	border: 1px solid black;
+/**
+ * column table 안의 모든 cell div
+ */
+div.column-table div.cell {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    /*border: 1px red solid;*/
+    border: 1px black solid;
+}
+
+/* 1열 */
+div.column-table div.column-header div.cell {
+    /*border: 1px blue solid;*/
+    text-align: center;
+    border: 2px black solid;
+}
+
+/* 1행 */
+div.column-table div.column div.cell.cell-header {
+    /*border: 1px green solid;*/
+    text-align: center;
+    border: 2px black solid;
+}
+
+div.cell {
+    height: 30px;
+    /*height: calc(100% / 12);*/
+    border: 1px black solid;
+}
+
+div.column {
+    width: calc(100% / 12);
+    float: left;
+}
+
+div.cell[colspan="2"] {
+    height: 60px;
+}
+
+div.cell[colspan="3"] {
+    height: 90px;
 }
