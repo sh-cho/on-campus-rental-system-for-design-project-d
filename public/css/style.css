@@ -15,7 +15,8 @@
 
 
 div.column-table {
-    /*float: left;*/
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 /**
@@ -39,26 +40,41 @@ div.column-table div.column-header div.cell {
 
 /* 1행 */
 div.column-table div.column div.cell.cell-header {
-    /*border: 1px green solid;*/
     text-align: center;
-    border: 2px black solid;
+    border: 1px black solid;
 }
 
 div.cell {
     height: 30px;
-    /*height: calc(100% / 12);*/
     border: 1px black solid;
 }
 
+div.cell.cell-empty {
+    background: repeating-linear-gradient(-45deg,
+        #666,
+        #666 5px,
+        #ccc 5px,
+        #ccc 10px
+    );
+}
+
+div.cell.cell-reserved {
+    background: red;
+}
+
 div.column {
-    width: calc(100% / 12);
+    /*width: calc(100% / 12);*/
     float: left;
 }
 
-div.cell[colspan="2"] {
-    height: 60px;
+/* css for legend */
+dl {
+    width: 200px;
+    background: #fff;
+    border: 1px solid #000;
+    padding: 5px 15px
 }
 
-div.cell[colspan="3"] {
-    height: 90px;
+dt, dd {
+    display: inline;
 }
