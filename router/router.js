@@ -5,4 +5,7 @@ module.exports = function(app) {
 	app.get('/test', function (req, res) {
 		res.render('test.html');
 	});
+    app.get('/login', function (req, res) {
+        res.render('login.html');
+    });
 };
