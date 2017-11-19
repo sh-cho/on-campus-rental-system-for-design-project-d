@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>KHURS Inquiry</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="css/jquery-ui.min.css">-->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery.tagit.css">
+    <link rel="stylesheet" type="text/css" href="css/test-page-style.css">
+
+    <style>
+        /* Show it is fixed to the top */
+        body {
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">KHURS</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inquiry <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Reserve</a>
+                </li>
+            </ul>
+            <!--<form class="form-inline mt-2 mt-md-0">-->
+                <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--</form>-->
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Inquiry Page</h1>
+
+        <hr>
+
+        <div>
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                <div class="col-10">
+                    <input class="form-control" type="date" value="2017-11-19" id="example-date-input">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="example-search-option" class="col-2 col-form-label">Option</label>
+                <div class="col-10">
+                    <!--<input class="form-control" type="text" id="example-search-option">-->
+                    <!--<ul id="example-search-option"></ul>-->
+                    <input name="tags" id="example-search-option" value="PC>10, Projector>1, screen>2">
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Inquiry</button>
+        </div>
+
+        <hr>
+        <!-- timetable -->
+        <div class="column-table">
+            <div class="column column-header">
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">12am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">1am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">2am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">3am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">4am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">5am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">6am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">7am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">8am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">9am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">10am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">11am</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">12pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">1pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">2pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">3pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">4pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">5pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">6pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">7pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">8pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">9pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">10pm</div>
+                <div class="cell cell-header"></div>
+                <div class="cell cell-header">11pm</div>
+                <div class="cell cell-header"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">201호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="4"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">202호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="6"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="4"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">203호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">204호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="5"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="2"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">205호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">206호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">207호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="7"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="7"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">208호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="5"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="5"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">209호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">210호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+
+            <div class="column">
+                <div class="cell cell-header">211호</div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="3"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-reserved" data-colspan="4"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+                <div class="cell cell-empty" data-colspan="1"></div>
+            </div>
+        </div> <!-- /column-table -->
+    </div>
+
+
+    <!-- scripts -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <!--<script src="js/jquery-ui.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/tag-it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $('.cell[data-colspan]').each(function() {
+            $(this).css('height', Number($(this).attr('data-colspan'))*30 + "px");
+        });
+
+        $("#example-search-option").tagit();
+    </script>
+</body>
+</html>
