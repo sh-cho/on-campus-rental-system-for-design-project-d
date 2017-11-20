@@ -45,6 +45,11 @@ div.cell.cell-reserved {
     border: 1px #3c763d solid !important;
 }
 
+div.cell.cell-reserved-class {
+    background: #f2dede;
+    border: 1px #a94442 solid !important;
+}
+
 div.column {
     width: calc(100% / 12);
     float: left;
