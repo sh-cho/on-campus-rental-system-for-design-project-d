@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>KHURS Equipment Inquiry</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="css/jquery-ui.min.css">-->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+
+    <style>
+        /* Show it is fixed to the top */
+        body {
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">KHURS</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inquiry <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Reserve</a>
+                </li>
+            </ul>
+            <!--<form class="form-inline mt-2 mt-md-0">-->
+                <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--</form>-->
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Equipment Inquiry Page</h1>
+
+        <hr>
+
+        <div>
+            <!--<div class="form-group row">-->
+                <!--<label for="example-date-input" class="col-2 col-form-label">Date</label>-->
+                <!--<div class="col-10">-->
+                    <!--<input class="form-control" type="date" value="2017-11-19" id="example-date-input">-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <button class="btn btn-primary" type="submit">Inquiry</button>
+        </div>
+
+        <hr>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-default">
+                <tr>
+                    <th>#</th>
+                    <th>장비 이름</th>
+                    <th>장비 ID</th>
+                    <th>상태</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>iPad 5세대</td>
+                    <td>a306f9dc-7035-4ae1-8e43-940c020869b9</td>
+                    <td>대여중 (~2017/11/30 15:00)</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>iPad 5세대</td>
+                    <td>902f1fd8-9421-4dff-9c55-93793f016e14</td>
+                    <td>대여 가능</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>iPad mini 4</td>
+                    <td>ee98f09e-906a-44c2-b10a-1b508111dac4</td>
+                    <td>대여 가능</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Microsoft Surface Pro 5세대</td>
+                    <td>160e1d46-e73c-4198-a6e7-8717c61c2ab2</td>
+                    <td>대여중 (~2018/01/03 18:00)</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>노트북(삼성)</td>
+                    <td>7de2ea7f-daeb-4d17-8fe5-4b904e420e26</td>
+                    <td>대여중 (~2017/11/29 14:00)</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>노트북(LG)</td>
+                    <td>69aa4295-ced9-42a3-9efd-647225865fd9</td>
+                    <td>대여 가능</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- scripts -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <!--<script src="js/jquery-ui.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $('.cell[data-colspan]').each(function() {
+            $(this).css('height', Number($(this).attr('data-colspan'))*30 + "px");
+        });
+
+        $("#example-search-option").tagit();
+    </script>
+</body>
+</html>

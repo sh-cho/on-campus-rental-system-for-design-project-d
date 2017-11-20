@@ -11,4 +11,7 @@ module.exports = function(app) {
     app.get('/inquiry', function (req, res) {
         res.render('inquiry.html');
     });
+    app.get('/inquiry_equipment', function (req, res) {
+        res.render('inquiry_equipment.html');
+    });
 };
