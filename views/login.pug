@@ -11,15 +11,15 @@ html
         link(rel='stylesheet', href='css/login.css')
     body
         div.container
-            form.form-signin
+            form.form-signin(action='/login', method='post')
                 h2.form-signin-heading KHURS Sign in
                 h6 KHU Reservation System
 
                 label.sr-only(for='inputEmail') Email
-                input#inputEmail.form-control(type='email', placeholder='Email', required, autofocus)
+                input#inputEmail.form-control(name='email', type='email', placeholder='Email', required, autofocus)
 
                 label.sr-only(for='inputPassword') Password
-                input#inputPassword.form-control(type='password', placeholder='Password', required)
+                input#inputPassword.form-control(name='password', type='password', placeholder='Password', required)
 
                 div.checkbox
                     label

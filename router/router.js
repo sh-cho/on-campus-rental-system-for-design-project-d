@@ -10,15 +10,36 @@ module.exports = function (app) {
         res.render('login.pug');
     });
     app.get('/session-test', (req, res) => {
+        // console.log('req:', req);
+        // console.log('res:', res);
+
         const sess = req.session;
         res.render('session-test.pug', {
             // nickname: sess.user_uid+1 ? app.users[sess.user_uid]['user_nickname'] : ''
-            nickname: 'abc'
+            nickname: 'abc',
+            idx: sess.user_idx
         });
+    });
+    app.get('/logout', (req, res) => {
+        delete req.session.user_idx;
+        res.redirect('/');
     });
 
     //html render
     app.get('/html-test', (req, res) => {
         res.render('html-test.html');
+    });
+
+
+    //POST handle
+    app.post('/login', (req, res) => {
+        const body = req.body;
+        console.log(body);
+
+        //유저 찾기
+        //-> 이후 구현
+        req.session.user_idx = 1;
+
+        res.redirect('/session-test');
     });
 };
