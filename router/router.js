@@ -1,17 +1,9 @@
-module.exports = function(app) {
-	app.get('/', function (req, res) {
-		res.render('index.html');
-	});
-	app.get('/test', function (req, res) {
-		res.render('test.html');
-	});
-    app.get('/login', function (req, res) {
-        res.render('login.html');
+module.exports = function (app) {
+    //Pug render
+    app.get('/', (req, res) => {
+        res.render('index');
     });
-    app.get('/inquiry', function (req, res) {
-        res.render('inquiry.html');
-    });
-    app.get('/inquiry_equipment', function (req, res) {
-        res.render('inquiry_equipment.html');
+    app.get('/pug-test', (req, res) => {
+        res.render('pug-test', {time: Date(), _title: 'PugPug'});
     });
 };
