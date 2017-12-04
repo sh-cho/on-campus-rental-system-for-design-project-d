@@ -9,6 +9,7 @@
   "author": "Seonghyeon Cho, Hyeongmin Oh",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
