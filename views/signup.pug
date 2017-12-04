@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title KHURS Sign Up
+        link(rel='stylesheet', href='css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/sign.css')
+    body
+        header
+        div.container
+            form.form-signup(action='/signup', method='post')
+                h3.form-signup-heading KHURS Sign Up Page
+                h6 KHU Reservation System
+
+                label.sr-only(for='inputEmail') Email
+                input#inputEmail.form-control(name='email', type='email', placeholder='Email', required, autofocus)
+
+                label.sr-only(for='inputPassword') Password
+                input#inputPassword.form-control(name='password', type='password', placeholder='Password', required)
+
+                label.sr-only(for='inputID') ID
+                input#inputID.form-control(name='id', type='text', placeholder='ex) 2014104000', required)
+
+                button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign Up
+                hr
+                p Back to&nbsp;
+                    a(href='/signin') Sign in page

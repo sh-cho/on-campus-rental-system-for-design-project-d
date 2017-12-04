@@ -6,8 +6,8 @@ module.exports = function (app) {
     app.get('/pug-test', (req, res) => {
         res.render('pug-test.pug', {time: Date(), _title: 'PugPug'});
     });
-    app.get('/login', (req, res) => {
-        res.render('login.pug');
+    app.get('/signin', (req, res) => {
+        res.render('signin.pug');
     });
     app.get('/session-test', (req, res) => {
         // console.log('req:', req);
@@ -22,6 +22,9 @@ module.exports = function (app) {
     });
     app.get('/inquiry', (req, res) => {
         res.render('inquiry.pug');
+    });
+    app.get('/signup', (req, res) => {
+        res.render('signup.pug');
     });
 
     //logout
@@ -38,7 +41,7 @@ module.exports = function (app) {
 
 
     //POST handle
-    app.post('/login', (req, res) => {
+    app.post('/signin', (req, res) => {
         const body = req.body;
         console.log(body);
 

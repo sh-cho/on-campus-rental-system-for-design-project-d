@@ -8,7 +8,7 @@ html
         title KHURS Sign in page
 
         link(rel='stylesheet', href='css/bootstrap.min.css')
-        link(rel='stylesheet', href='css/login.css')
+        link(rel='stylesheet', href='css/sign.css')
     body
         div.container
             form.form-signin(action='/login', method='post')
@@ -27,3 +27,6 @@ html
                         |  Remember me
 
                 button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+                hr
+                p Don't have an account!&nbsp;
+                    a(href='/signup') Sign Up Here
