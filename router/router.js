@@ -20,10 +20,16 @@ module.exports = function (app) {
             idx: sess.user_idx
         });
     });
+    app.get('/inquiry', (req, res) => {
+        res.render('inquiry.pug');
+    });
+
+    //logout
     app.get('/logout', (req, res) => {
         delete req.session.user_idx;
         res.redirect('/');
     });
+
 
     //html render
     app.get('/html-test', (req, res) => {

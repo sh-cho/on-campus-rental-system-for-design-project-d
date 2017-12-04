@@ -1,0 +1,28 @@
+//- html
+doctype html
+html
+    head
+        block title
+        link(rel='stylesheet', href='css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/navbar-top-fixed.css')
+    body
+        header
+            //- var navbar_id = "navbarCollapse"; //-> 나중에 수정
+            nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
+                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                a.navbar-brand(href='#') KHURS
+                div.collapse.navbar-collapse#navbarCollapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item: a.nav-link(href='#') Home
+                        li.nav-item: a.nav-link(href='#') Inquiry
+                        li.nav-item: a.nav-link(href='#') Reserve
+    div.container
+        block content
+        footer
+            script(src='js/jquery-3.2.1.min.js')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.js')
+            script(src='js/bootstrap.min.js')
+        block inline_script
+
