@@ -8,10 +8,11 @@ const path = require('path');
 const morgan = require('morgan');
 const ejs = require('ejs');
 
+
 const app = express();
 
 //create logger (morgan)
-const mylogger = morgan('tiny');
+const morgan_logger = morgan('tiny');
 
 //server settings
 app.set('view engine', 'pug');
@@ -27,7 +28,7 @@ app.use(session({
 }));
 app.use(favicon(path.join(__dirname, 'public/image', 'favicon.ico')));
 app.use(express.static('public'));
-app.use(mylogger);
+app.use(morgan_logger);
 
 
 const router = require('./router/router.js')(app);

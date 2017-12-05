@@ -1,4 +1,7 @@
 module.exports = function (app) {
+    const bcrypt = require('bcrypt-nodejs');
+    const db = require('../db');
+
     //Pug render
     app.get('/', (req, res) => {
         res.render('index.pug');
@@ -45,10 +48,34 @@ module.exports = function (app) {
         const body = req.body;
         console.log(body);
 
+        const email = req.body.email;
+        const password = req.body.password;
+
         //유저 찾기
         //-> 이후 구현
-        req.session.user_idx = 1;
+        // req.session.user_idx = 1;
+        db.query('SELECT * FROM `member` WHERE `email` = ?', email, (err, result) => {
+            if (err) throw err;
+            console.log(result);
 
-        res.redirect('/session-test');
+            if (result.length === 0) {
+                console.log('없음');
+            } else {
+                if (!bcrypt.compareSync(password, result[0].password)) {
+                    console.log('비밀번호 불일치');
+                } else {
+                    console.log('로그인');
+                }
+            }
+        });
+
+        // res.redirect('/session-test');
+    });
+    app.post('/signup', (req, res) => {
+        const email = req.body.email;
+        const id = req.body.id;
+        const password = req.body.password;
+
+
     });
 };
