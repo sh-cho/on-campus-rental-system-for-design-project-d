@@ -76,6 +76,22 @@ module.exports = function (app) {
         const id = req.body.id;
         const password = req.body.password;
 
+        db.query('SELECT * FROM `member` WHERE `email` = ?', email, (err, result) => {
+            if (err) throw err;
+            console.log("before insert");
 
+            if (result.length === 0) {
+                const salt = bcrypt.genSaltSync(10);
+                const hash = bcrypt.hashSync(password, salt);
+                db.query('INSERT INTO `member` (id, password, type, email) VALUES (?, ?, ?, ?)',
+                    [id, hash, 1, email], (err, result) => {
+                    if (err) throw err;
+                    console.log('추가 완료. result: ', result);
+                });
+            } else {
+                //이미 있음
+                console.log("이미 존재");
+            }
+        });
     });
 };
