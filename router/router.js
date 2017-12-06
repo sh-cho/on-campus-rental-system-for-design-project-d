@@ -29,6 +29,14 @@ module.exports = function (app) {
     app.get('/signup', (req, res) => {
         res.render('signup.pug');
     });
+    app.get('/main', (req, res) => {
+        //DEBUG: session 변수 전부 출력
+        const sess = req.session;
+        console.log(typeof(sess));
+        console.log(sess);
+        res.render('main.pug', sess);
+    });
+
 
     //logout
     app.get('/logout', (req, res) => {
@@ -60,11 +68,13 @@ module.exports = function (app) {
 
             if (result.length === 0) {
                 console.log('없음');
+                res.json({success: false});
             } else {
                 if (!bcrypt.compareSync(password, result[0].password)) {
                     console.log('비밀번호 불일치');
                 } else {
-                    console.log('로그인');
+                    console.log('로그인 성공');
+                    res.redirect('/main');
                 }
             }
         });
