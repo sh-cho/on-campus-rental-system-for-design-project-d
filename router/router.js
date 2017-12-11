@@ -32,9 +32,9 @@ module.exports = function (app) {
     app.get('/main', (req, res) => {
         //DEBUG: session 변수 전부 출력
         const sess = req.session;
-        console.log(typeof(sess));
-        console.log(sess);
-        res.render('main.pug', sess);
+        res.render('main.pug', {
+            session: sess
+        });
     });
 
 
@@ -60,7 +60,6 @@ module.exports = function (app) {
         const password = req.body.password;
 
         //유저 찾기
-        //-> 이후 구현
         // req.session.user_idx = 1;
         db.query('SELECT * FROM `member` WHERE `email` = ?', email, (err, result) => {
             if (err) throw err;
