@@ -16,10 +16,11 @@ html
                 h2.form-signin-heading KHURS Sign in
                 h6 KHU Reservation System
 
-                div.alert.alert-success.alert-dismissible.fade.show(role='alert')
-                    button.close(type='button', data-dismiss='alert', aria-label='Close')
-                        span(aria-hidden='true') &times;
-                    strong Sign up success
+                if query.success === 'true'
+                    div.alert.alert-success.alert-dismissible.fade.show(role='alert')
+                        button.close(type='button', data-dismiss='alert', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        strong Sign up success
 
                 label.sr-only(for='inputEmail') Email
                 input#inputEmail.form-control(name='email', type='email', placeholder='Email', required, autofocus)

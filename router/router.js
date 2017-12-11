@@ -44,8 +44,13 @@ module.exports = function (app) {
 
     //logout
     app.get('/logout', (req, res) => {
-        delete req.session.user_idx;
-        res.redirect('/');
+        // delete req.session.user_idx;
+        // res.redirect('/signin');
+
+        req.session.destroy(function (err) {
+            if (err) throw err;
+            res.redirect('/signin');
+        });
     });
 
 
@@ -65,7 +70,7 @@ module.exports = function (app) {
 
         //유저 찾기
         // req.session.user_idx = 1;
-        db.query('SELECT * FROM `member` WHERE `email` = ?', email, (err, result) => {
+        db.query('SELECT * FROM `member` WHERE `email` = ?', [email], (err, result) => {
             if (err) throw err;
             console.log(result);
 
@@ -77,6 +82,9 @@ module.exports = function (app) {
                     console.log('비밀번호 불일치');
                 } else {
                     console.log('로그인 성공');
+
+                    //세션에 유저 정보 저장
+                    req.session.user_info = result[0];
                     res.redirect('/main');
                 }
             }
@@ -89,7 +97,7 @@ module.exports = function (app) {
         const id = req.body.id;
         const password = req.body.password;
 
-        db.query('SELECT * FROM `member` WHERE `email` = ?', email, (err, result) => {
+        db.query('SELECT * FROM `member` WHERE `email` = ?', [email], (err, result) => {
             if (err) throw err;
             console.log("before insert");
 
@@ -104,7 +112,7 @@ module.exports = function (app) {
                     res.redirect(url.format({
                         pathname: '/signin',
                         query: {
-                            'success': true
+                            'success': true,
                         }
                     }));
                 });
