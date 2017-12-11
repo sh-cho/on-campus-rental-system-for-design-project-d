@@ -1,6 +1,7 @@
 module.exports = function (app) {
     const bcrypt = require('bcrypt-nodejs');
     const db = require('../db');
+    const url = require('url');
 
     //Pug render
     app.get('/', (req, res) => {
@@ -10,7 +11,10 @@ module.exports = function (app) {
         res.render('pug-test.pug', {time: Date(), _title: 'PugPug'});
     });
     app.get('/signin', (req, res) => {
-        res.render('signin.pug');
+        console.log("req.query: ", req.query);
+        res.render('signin.pug', {
+            query: req.query
+        });
     });
     app.get('/session-test', (req, res) => {
         // console.log('req:', req);
@@ -96,6 +100,13 @@ module.exports = function (app) {
                     [id, hash, 1, email], (err, result) => {
                     if (err) throw err;
                     console.log('추가 완료. result: ', result);
+                    // res.redirect('/signin?success=true');
+                    res.redirect(url.format({
+                        pathname: '/signin',
+                        query: {
+                            'success': true
+                        }
+                    }));
                 });
             } else {
                 //이미 있음
