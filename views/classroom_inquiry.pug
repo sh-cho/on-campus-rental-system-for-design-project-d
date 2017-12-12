@@ -2,4 +2,26 @@ extends ./layout.pug
 block title
     title KHURS Classroom Inquiry
 block content
-    //
+    h1 Classroom Inquiry Page
+    hr
+
+    form(action='/classroom_inquiry', method='post')
+        div.form-group.row
+            label.col-2.col-form-label(for='date-input') Date
+            div.col-10
+                input.form-control#date-input(type='date', required)
+        //div.form-group.row
+        //    label.col-2.col-form-label(for='classroom-number') Classroom Number
+        //    div.col-10
+        //        select.custom-select#classroom-number
+        //            option B01
+        //            option B
+        //            option C
+        //            option D
+
+
+        button.btn.btn-primary(type='submit') Inquiry
+    hr
+
+    //timetable 출력
+    if timetable
