@@ -1,0 +1,5 @@
+class Lecture {
+    constructor() {
+
+    }
+}
