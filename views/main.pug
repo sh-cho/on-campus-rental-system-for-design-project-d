@@ -2,7 +2,25 @@ extends ./layout.pug
 block title
     title KHURS
 block content
-    p main page
+    .jumbotron
+        h1 Kyung Hee University Reservation System
+        hr
+        p 이제 강의실과 장비를 온라인으로 편하게 대여하세요.
+        hr
+        p
+            span.badge.badge-primary.badge-pill 강의실 (Classroom)
+            br
+            a.btn.btn-primary(href='/classroom_inquiry', role='button') 조회(Inquiry)
+            | &nbsp;
+            a.btn.btn-primary(href='/classroom_reserve', role='button') 예약(Reserve)
+            | &nbsp;
+        p
+            span.badge.badge-default.badge-pill 장비 (Equipment)
+            br
+            a.btn.btn-secondary(href='/equipment_inquiry', role='button') 조회(Inquiry)
+            | &nbsp;
+            a.btn.btn-secondary(href='/equipment_reserve', role='button') 예약(Reserve)
+            | &nbsp;
 
     //- session, variable test
     hr

@@ -27,9 +27,28 @@ module.exports = function (app) {
             idx: sess.user_idx
         });
     });
-    app.get('/inquiry', (req, res) => {
-        res.render('inquiry.pug');
+
+    app.get('/classroom_inquiry', (req, res) => {
+        res.render('classroom_inquiry.pug', {
+            query: req.query
+        });
     });
+    app.get('/classroom_reserve', (req, res) => {
+        res.render('classroom_reserve.pug', {
+            query: req.query
+        });
+    });
+    app.get('/equipment_inquiry', (req, res) => {
+        res.render('equipment_inquiry.pug', {
+            query: req.query
+        });
+    });
+    app.get('/equipment_reserve', (req, res) => {
+        res.render('equipment_reserve.pug', {
+            query: req.query
+        });
+    });
+
     app.get('/signup', (req, res) => {
         res.render('signup.pug');
     });
@@ -108,7 +127,6 @@ module.exports = function (app) {
                     [id, hash, 1, email], (err, result) => {
                     if (err) throw err;
                     console.log('추가 완료. result: ', result);
-                    // res.redirect('/signin?success=true');
                     res.redirect(url.format({
                         pathname: '/signin',
                         query: {
@@ -121,5 +139,8 @@ module.exports = function (app) {
                 console.log("이미 존재");
             }
         });
+    });
+    app.post('/classroom_inquiry', (req, res) => {
+
     });
 };
