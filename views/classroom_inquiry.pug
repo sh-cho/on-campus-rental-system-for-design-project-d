@@ -9,19 +9,45 @@ block content
         div.form-group.row
             label.col-2.col-form-label(for='date-input') Date
             div.col-10
-                input.form-control#date-input(type='date', required)
-        //div.form-group.row
-        //    label.col-2.col-form-label(for='classroom-number') Classroom Number
-        //    div.col-10
-        //        select.custom-select#classroom-number
-        //            option B01
-        //            option B
-        //            option C
-        //            option D
-
+                input.form-control#date-input(name='date', type='date', required)
 
         button.btn.btn-primary(type='submit') Inquiry
     hr
 
     //timetable 출력
-    if timetable
+    if lectures
+        div.column-table
+            //column header
+            div.column.column-header
+                div.cell.cell-header
+                -for (var i=0; i<24; i++)
+                    div.cell.cell-header !{i}:00
+                    div.cell.cell-header
+            each classroom in classrooms
+                div.column
+                    div.cell.cell-header !{classroom.name}
+                    -for (var i=0; i<48; i++) {
+                        -var current_time = Math.floor(i/2)+":"+(i%2===0?"00":"30")+":00";
+                        -var found = false;
+                        -for (const lecture of lectures) {
+                            -if (lecture.classroom_id===classroom.id && lecture.lecture_start_time===current_time) {
+                                -var hour_diff = Number(lecture.lecture_end_time.substr(0, 2))-Number(lecture.lecture_start_time.substr(0, 2));
+                                -var end_in_30 = lecture.lecture_end_time.substr(3, 2)==="30";
+                                -var colspan_len = hour_diff*2+(end_in_30?1:0);
+                                div.cell.cell-reserved-class(data-colspan=colspan_len) #{lecture.name}
+                                -found = true;
+                                -i = i + (colspan_len-1);
+                                -break;
+                            -}
+                        -}
+                        -if (!found)
+                            div.cell.cell-empty(data-colspan=1) #{current_time}
+                    -}
+
+
+
+
+    hr
+    h3 debug query
+    pre !{JSON.stringify(classrooms)}
+    pre !{JSON.stringify(lectures)}

@@ -1,7 +1,19 @@
 module.exports = function (app) {
+    //libraries
     const bcrypt = require('bcrypt-nodejs');
     const db = require('../db');
     const url = require('url');
+
+    //vars
+    let classrooms = [];
+
+    //init works
+    db.query('SELECT id, name FROM classroom', [], (err, results) => {
+        if (err) throw err;
+        classrooms = results;
+    });
+
+
 
     //Pug render
     app.get('/', (req, res) => {
@@ -16,21 +28,14 @@ module.exports = function (app) {
             query: req.query
         });
     });
-    app.get('/session-test', (req, res) => {
-        // console.log('req:', req);
-        // console.log('res:', res);
-
-        const sess = req.session;
-        res.render('session-test.pug', {
-            // nickname: sess.user_uid+1 ? app.users[sess.user_uid]['user_nickname'] : ''
-            nickname: 'abc',
-            idx: sess.user_idx
-        });
-    });
 
     app.get('/classroom_inquiry', (req, res) => {
+        const sess = req.session;
+        let lectures = sess.lectures;
+        req.session.lectures = null;
         res.render('classroom_inquiry.pug', {
-            query: req.query
+            'classrooms': classrooms,
+            'lectures': lectures
         });
     });
     app.get('/classroom_reserve', (req, res) => {
@@ -108,8 +113,6 @@ module.exports = function (app) {
                 }
             }
         });
-
-        // res.redirect('/session-test');
     });
     app.post('/signup', (req, res) => {
         const email = req.body.email;
@@ -141,6 +144,25 @@ module.exports = function (app) {
         });
     });
     app.post('/classroom_inquiry', (req, res) => {
+        const date = new Date(req.body.date);
+        const day = date.getDay();
+        let lectures = [];
+        console.log("date: ", date);
+        console.log("day: ", day);
+        if (day===0 || day===6) {
+            //pass
+            console.log("pass");
+            res.redirect('/classroom_inquiry');
+        } else {
+            db.query('SELECT * FROM `lecture` WHERE day_of_the_week & ?', [Math.pow(2, 5-day)], (err, results) => {
+                console.log("res: ", results);
+                console.log(typeof(results));
+                lectures = results;
 
+                const sess = req.session;
+                sess.lectures = lectures;
+                res.redirect('/classroom_inquiry');
+            });
+        }
     });
 };
