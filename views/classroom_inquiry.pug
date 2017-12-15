@@ -15,7 +15,7 @@ block content
     hr
 
     //timetable 출력
-    if lectures
+    if inquiry_requested
         div.column-table
             //column header
             div.column.column-header
@@ -29,19 +29,21 @@ block content
                     -for (var i=0; i<48; i++) {
                         -var current_time = Math.floor(i/2)+":"+(i%2===0?"00":"30")+":00";
                         -var found = false;
-                        -for (const lecture of lectures) {
-                            -if (lecture.classroom_id===classroom.id && lecture.lecture_start_time===current_time) {
-                                -var hour_diff = Number(lecture.lecture_end_time.substr(0, 2))-Number(lecture.lecture_start_time.substr(0, 2));
-                                -var end_in_30 = lecture.lecture_end_time.substr(3, 2)==="30";
-                                -var colspan_len = hour_diff*2+(end_in_30?1:0);
-                                div.cell.cell-reserved-class(data-colspan=colspan_len) #{lecture.name}
-                                -found = true;
-                                -i = i + (colspan_len-1);
-                                -break;
+                        -if (lectures) {
+                            -for (const lecture of lectures) {
+                                -if (lecture.classroom_id===classroom.id && lecture.lecture_start_time===current_time) {
+                                    -var hour_diff = Number(lecture.lecture_end_time.substr(0, 2))-Number(lecture.lecture_start_time.substr(0, 2));
+                                    -var end_in_30 = lecture.lecture_end_time.substr(3, 2)==="30";
+                                    -var colspan_len = hour_diff*2+(end_in_30?1:0);
+                                    div.cell.cell-reserved-class(data-colspan=colspan_len) #{lecture.name}
+                                    -found = true;
+                                    -i = i + (colspan_len-1);
+                                    -break;
+                                -}
                             -}
                         -}
                         -if (!found)
-                            div.cell.cell-empty(data-colspan=1) #{current_time}
+                            div.cell.cell-empty(data-colspan=1)
                     -}
 
 
@@ -51,3 +53,5 @@ block content
     h3 debug query
     pre !{JSON.stringify(classrooms)}
     pre !{JSON.stringify(lectures)}
+    pre !{JSON.stringify(inquiry_requested)}
+    pre !{inquiry_requested}

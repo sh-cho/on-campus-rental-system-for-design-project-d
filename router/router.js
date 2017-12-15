@@ -32,10 +32,14 @@ module.exports = function (app) {
     app.get('/classroom_inquiry', (req, res) => {
         const sess = req.session;
         let lectures = sess.lectures;
+        let inquiry_requested = sess.inquiry_requested;
         req.session.lectures = null;
+        req.session.inquiry_requested = null;
         res.render('classroom_inquiry.pug', {
+            'inquiry_requested': inquiry_requested,
             'classrooms': classrooms,
-            'lectures': lectures
+            'lectures': lectures,
+            'rentals': null
         });
     });
     app.get('/classroom_reserve', (req, res) => {
@@ -146,12 +150,14 @@ module.exports = function (app) {
     app.post('/classroom_inquiry', (req, res) => {
         const date = new Date(req.body.date);
         const day = date.getDay();
+        const sess = req.session;
         let lectures = [];
         console.log("date: ", date);
         console.log("day: ", day);
         if (day===0 || day===6) {
             //pass
             console.log("pass");
+            sess.inquiry_requested = true;
             res.redirect('/classroom_inquiry');
         } else {
             db.query('SELECT * FROM `lecture` WHERE day_of_the_week & ?', [Math.pow(2, 5-day)], (err, results) => {
@@ -159,8 +165,8 @@ module.exports = function (app) {
                 console.log(typeof(results));
                 lectures = results;
 
-                const sess = req.session;
                 sess.lectures = lectures;
+                sess.inquiry_requested = true;
                 res.redirect('/classroom_inquiry');
             });
         }
