@@ -17,10 +17,7 @@ module.exports = function (app) {
 
     //Pug render
     app.get('/', (req, res) => {
-        res.render('index.pug');
-    });
-    app.get('/pug-test', (req, res) => {
-        res.render('pug-test.pug', {time: Date(), _title: 'PugPug'});
+        res.redirect('/signin');
     });
     app.get('/signin', (req, res) => {
         console.log("req.query: ", req.query);
@@ -110,10 +107,24 @@ module.exports = function (app) {
 
             if (result.length === 0) {
                 console.log('없음');
-                res.json({success: false});
+                // res.json({success: false});
+                res.redirect(url.format({
+                    pathname: '/signin',
+                    query: {
+                        'success': false,
+                        'message': 'Login failed: ID does not exist'
+                    }
+                }));
             } else {
                 if (!bcrypt.compareSync(password, result[0].password)) {
                     console.log('비밀번호 불일치');
+                    res.redirect(url.format({
+                        pathname: '/signin',
+                        query: {
+                            'success': false,
+                            'message': 'Login failed: Password Incorrect'
+                        }
+                    }));
                 } else {
                     console.log('로그인 성공');
 
@@ -143,7 +154,8 @@ module.exports = function (app) {
                     res.redirect(url.format({
                         pathname: '/signin',
                         query: {
-                            'success': true
+                            'success': true,
+                            'message': 'Sign up success'
                         }
                     }));
                 });
@@ -153,7 +165,8 @@ module.exports = function (app) {
                 res.redirect(url.format({
                     pathname: '/signin',
                     query: {
-                        'success': false
+                        'success': false,
+                        'message': 'Sign up failed: ID duplicated'
                     }
                 }));
             }
@@ -164,6 +177,7 @@ module.exports = function (app) {
         const day = date.getDay();
         const sess = req.session;
         let lectures = [];
+
         console.log("date: ", date);
         console.log("day: ", day);
 

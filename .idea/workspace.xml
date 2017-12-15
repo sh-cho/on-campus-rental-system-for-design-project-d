@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dc900f9-faf8-49a5-8791-8a34539d3168" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/router/router.js" afterPath="$PROJECT_DIR$/router/router.js" />
-      <change beforePath="$PROJECT_DIR$/views/classroom_inquiry.pug" afterPath="$PROJECT_DIR$/views/classroom_inquiry.pug" />
-      <change beforePath="$PROJECT_DIR$/views/layout.pug" afterPath="$PROJECT_DIR$/views/layout.pug" />
+      <change beforePath="$PROJECT_DIR$/views/classroom_reserve.pug" afterPath="$PROJECT_DIR$/views/classroom_reserve.pug" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" afterPath="" />
       <change beforePath="$PROJECT_DIR$/views/main.pug" afterPath="$PROJECT_DIR$/views/main.pug" />
+      <change beforePath="$PROJECT_DIR$/views/pug-test.pug" afterPath="" />
       <change beforePath="$PROJECT_DIR$/views/signin.pug" afterPath="$PROJECT_DIR$/views/signin.pug" />
-      <change beforePath="$PROJECT_DIR$/views/signup.pug" afterPath="$PROJECT_DIR$/views/signup.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,9 +24,21 @@
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="228">
+              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classroom_reserve.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/classroom_reserve.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <marker date="1513380298254" expanded="true" signature="72:111" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,18 +46,18 @@
       <file leaf-file-name="main.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/main.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+            <state relative-caret-position="57">
+              <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classroom_inquiry.pug" pinned="false" current-in-tab="false">
+      <file leaf-file-name="classroom_inquiry.pug" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/classroom_inquiry.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+            <state relative-caret-position="855">
+              <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -63,26 +73,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="column-table.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/column-table.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="column-table.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/column-table.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="787">
-              <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="member.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class/member.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,21 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/signup.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signin.pug" pinned="false" current-in-tab="true">
+      <file leaf-file-name="signin.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/signin.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="53" column="22" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="59" selection-end-column="28" />
+            <state relative-caret-position="475">
+              <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -146,6 +126,7 @@
       <find>template/lay</find>
       <find>req.sess</find>
       <find>signin</find>
+      <find>query</find>
     </findStrings>
     <replaceStrings>
       <replace>data-colspan</replace>
@@ -187,7 +168,6 @@
         <option value="$PROJECT_DIR$/views/equipment/inquiry.pug" />
         <option value="$PROJECT_DIR$/views/equipment/reserve.pug" />
         <option value="$PROJECT_DIR$/views/classroom/inquiry.pug" />
-        <option value="$PROJECT_DIR$/views/classroom_reserve.pug" />
         <option value="$PROJECT_DIR$/views/equipment_inquiry.pug" />
         <option value="$PROJECT_DIR$/views/equipment_reserve.pug" />
         <option value="$PROJECT_DIR$/class/member.js" />
@@ -196,10 +176,11 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/views/classroom_inquiry.pug" />
         <option value="$PROJECT_DIR$/views/layout.pug" />
-        <option value="$PROJECT_DIR$/router/router.js" />
         <option value="$PROJECT_DIR$/views/signup.pug" />
-        <option value="$PROJECT_DIR$/views/main.pug" />
         <option value="$PROJECT_DIR$/views/signin.pug" />
+        <option value="$PROJECT_DIR$/views/main.pug" />
+        <option value="$PROJECT_DIR$/router/router.js" />
+        <option value="$PROJECT_DIR$/views/classroom_reserve.pug" />
       </list>
     </option>
   </component>
@@ -214,7 +195,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1057" />
@@ -342,18 +323,18 @@
       <workItem from="1512975339061" duration="6397000" />
       <workItem from="1512982026167" duration="15251000" />
       <workItem from="1513150399100" duration="2974000" />
-      <workItem from="1513369024754" duration="9096000" />
+      <workItem from="1513369024754" duration="11265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121753000" />
+    <option name="totallyTimeSpent" value="123922000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="953" y="0" width="974" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20041753" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -562,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/classroom_reserve.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/pug-test.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -585,58 +559,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/member.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/column-table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/column-table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/classroom_inquiry.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -649,18 +575,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/main.pug">
+    <entry file="file://$PROJECT_DIR$/public/js/column-table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/column-table.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/member.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/signin.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="53" column="22" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="59" selection-end-column="28" />
+        <state relative-caret-position="475">
+          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/classroom_reserve.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <marker date="1513380298254" expanded="true" signature="72:111" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/classroom_inquiry.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
           <folding />
         </state>
       </provider>

@@ -13,20 +13,20 @@ html
         header
         div.container
             form.form-signin(action='/signin', method='post')
-                h2.form-signin-heading KHURS Sign in
+                h2.form-signin-heading
+                    a(href='/signin') KHURS Sign in
                 h6 KHU Reservation System
 
                 if query.success === 'true'
                     div.alert.alert-success.alert-dismissible.fade.show(role='alert')
                         button.close(type='button', data-dismiss='alert', aria-label='Close')
                             span(aria-hidden='true') &times;
-                        strong Sign up success
+                        | #{query.message}
                 else if query.success === 'false'
                     div.alert.alert-warning.alert-dismissible.fade.show(role='alert')
                         button.close(type='button', data-dismiss='alert', aria-label='Close')
                             span(aria-hidden='true') &times;
-                        strong Sign up failed
-                        |: ID Duplicated
+                        | #{query.message}
 
                 label.sr-only(for='inputEmail') Email
                 input#inputEmail.form-control(name='email', type='email', placeholder='Email', required, autofocus)
