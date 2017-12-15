@@ -21,6 +21,12 @@ html
                         button.close(type='button', data-dismiss='alert', aria-label='Close')
                             span(aria-hidden='true') &times;
                         strong Sign up success
+                else if query.success === 'false'
+                    div.alert.alert-warning.alert-dismissible.fade.show(role='alert')
+                        button.close(type='button', data-dismiss='alert', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        strong Sign up failed
+                        |: ID Duplicated
 
                 label.sr-only(for='inputEmail') Email
                 input#inputEmail.form-control(name='email', type='email', placeholder='Email', required, autofocus)
@@ -44,11 +50,11 @@ html
             script(src='js/bootstrap.min.js')
 
         //pug response query test
-        hr
-        p debug area
-        pre !{query}
-        pre !{JSON.stringify(query)}
-        if query.success === 'true'
-            h1 success
-        else
-            h5 not success
+        //hr
+        //p debug area
+        //pre !{query}
+        //pre !{JSON.stringify(query)}
+        //if query.success === 'true'
+        //    h1 success
+        //else
+        //    h5 not success

@@ -12,5 +12,4 @@
 - Bootstrap v4.0.0-alpha.6
 - jQuery v3.2.1
 - jQuery UI v1.12.1
-- [Tag-it](https://github.com/aehlke/tag-it)
 - popper.js v1.13.0

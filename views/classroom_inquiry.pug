@@ -16,6 +16,7 @@ block content
 
     //timetable 출력
     if inquiry_requested
+        h4 Inquiry Date: !{inquiry_date}
         div.column-table
             //column header
             div.column.column-header
@@ -48,10 +49,9 @@ block content
 
 
 
-
     hr
-    h3 debug query
-    pre !{JSON.stringify(classrooms)}
-    pre !{JSON.stringify(lectures)}
-    pre !{JSON.stringify(inquiry_requested)}
-    pre !{inquiry_requested}
+    //h3 debug query
+    //pre !{JSON.stringify(classrooms)}
+    //pre !{JSON.stringify(lectures)}
+    //pre !{JSON.stringify(inquiry_requested)}
+    //pre !{inquiry_requested}

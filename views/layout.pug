@@ -14,13 +14,9 @@ html
                 a.navbar-brand(href='#') KHURS
                 div.collapse.navbar-collapse#navbarCollapse
                     ul.navbar-nav.mr-auto
-                        li.nav-item: a.nav-link(href='#') Home
-                        li.nav-item: a.nav-link(href='#') Inquiry
-                        li.nav-item: a.nav-link(href='#') Reserve
-                    //form.form-inline.my-2.my-md-0(action='/logout', method='post')
-                        button.btn.btn-secondary.my-2.my-sm-0(type='submit') Logout
-                    //button.btn.btn-secondary.mr-2.my-sm-0(type='submit')
-                        a(href='/logout') Logout
+                        li.nav-item: a.nav-link(href='/main') Home
+                        //li.nav-item: a.nav-link(href='#') Inquiry
+                        //li.nav-item: a.nav-link(href='#') Reserve
                     a.btn.btn-secondary.my-2.my-md-0(role='button', href='/logout') Logout
         div.container
             block content

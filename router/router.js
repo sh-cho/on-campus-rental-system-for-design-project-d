@@ -8,7 +8,7 @@ module.exports = function (app) {
     let classrooms = [];
 
     //init works
-    db.query('SELECT id, name FROM classroom', [], (err, results) => {
+    db.query('SELECT id, name FROM classroom ORDER BY name', [], (err, results) => {
         if (err) throw err;
         classrooms = results;
     });
@@ -33,10 +33,16 @@ module.exports = function (app) {
         const sess = req.session;
         let lectures = sess.lectures;
         let inquiry_requested = sess.inquiry_requested;
+        let inquiry_date = sess.inquiry_date;
+
+        //remove session var
         req.session.lectures = null;
         req.session.inquiry_requested = null;
+        req.session.inquiry_date = null;
+
         res.render('classroom_inquiry.pug', {
             'inquiry_requested': inquiry_requested,
+            'inquiry_date': inquiry_date,
             'classrooms': classrooms,
             'lectures': lectures,
             'rentals': null
@@ -137,13 +143,19 @@ module.exports = function (app) {
                     res.redirect(url.format({
                         pathname: '/signin',
                         query: {
-                            'success': true,
+                            'success': true
                         }
                     }));
                 });
             } else {
                 //이미 있음
                 console.log("이미 존재");
+                res.redirect(url.format({
+                    pathname: '/signin',
+                    query: {
+                        'success': false
+                    }
+                }));
             }
         });
     });
@@ -154,10 +166,13 @@ module.exports = function (app) {
         let lectures = [];
         console.log("date: ", date);
         console.log("day: ", day);
+
+        sess.inquiry_requested = true;
+        sess.inquiry_date = date.toISOString().slice(0, 10);
+
         if (day===0 || day===6) {
             //pass
             console.log("pass");
-            sess.inquiry_requested = true;
             res.redirect('/classroom_inquiry');
         } else {
             db.query('SELECT * FROM `lecture` WHERE day_of_the_week & ?', [Math.pow(2, 5-day)], (err, results) => {
@@ -166,7 +181,6 @@ module.exports = function (app) {
                 lectures = results;
 
                 sess.lectures = lectures;
-                sess.inquiry_requested = true;
                 res.redirect('/classroom_inquiry');
             });
         }
