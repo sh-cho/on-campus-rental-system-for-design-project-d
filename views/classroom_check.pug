@@ -1,24 +1,59 @@
 extends ./layout.pug
 block title
     title KHURS Check my reservation list
+block inline_css
+    style(type='text/css').
+        .table td, .table th {
+            text-align: center;
+        }
 block content
     h1 My Reservation Lists
     hr
 
+    if query.success === 'true'
+        div.alert.alert-success.alert-dismissible.fade.show(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+            | #{query.message}
+        hr
+    else if query.success === 'false'
+        div.alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+            | #{query.message}
+        hr
+
     h3 Reservations
     h6.text-muted 예약 목록
-    //table.table.table-bordered
-    //    thead.thead-default
-    //        tr
-    //            th a
-    //            th b
-    //            th c
-    //    tbody
-    //        tr
-    //            td d
-    //            td e
-    //            td f
-    
+
+    if rentals
+        table.table.table-bordered
+            thead.thead-default
+                tr
+                    th id
+                    th date
+                    th classroom name
+                    th rental start time
+                    th rental end time
+                    th reason
+                    th cancel
+            tbody
+                each rental in rentals
+                    tr
+                        td #{rental.id}
+                        td #{rental.date.toISOString().slice(0, 10)}
+                        td #{rental.classroom_name}
+                        td #{rental.rental_start_time}
+                        td #{rental.rental_end_time}
+                        td #{rental.reason}
+                        td
+                            form(action="/classroom_check", method="post")
+                                input(type='hidden', name='rental_id', value=rental.id)
+                                input(type='hidden', name='date', value=rental.date.toISOString().slice(0, 10))
+                                input(type='hidden', name='classroom_id', value=rental.classroom_id)
+                                input(type='hidden', name='rental_start_time', value=rental.rental_start_time)
+                                input(type='hidden', name='rental_end_time', value=rental.rental_end_time)
+                                button.btn.btn-danger(type='submit') Cancel
     hr
 
     h3 Waitings

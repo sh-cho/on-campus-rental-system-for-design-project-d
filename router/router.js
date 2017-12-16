@@ -15,21 +15,11 @@ module.exports = function (app) {
         classrooms = results;
     });
 
-    // let transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: mailconfig
-    // });
-    // let mailOptions = {
-    //     from: "KHURS administrator <kcm880825@gmail.com>",
-    //     to: 'seonghyeoncho96@khu.ac.kr',
-    //     subject: 'nodemailer 테스트',
-    //     text: '평문 보내기 테스트 123'
-    // };
-    // transporter.sendMail(mailOptions, (err, response) => {
-    //     if (err) throw err;
-    //     console.log(response);
-    //     transporter.close();
-    // });
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: mailconfig
+    });
+
 
 
 
@@ -87,8 +77,23 @@ module.exports = function (app) {
             return;
         }
 
-        res.render('classroom_check.pug', {
-            query: req.query
+        let rentals = [];
+        let rental_waitings = [];
+
+        db.query('SELECT cr.id, cl.name as classroom_name, cr.classroom_id, cr.member_id, cr.date, cr.rental_start_time, cr.rental_end_time, cr.reason FROM classroom_rental as cr, classroom as cl WHERE cl.id = cr.classroom_id AND cr.member_id=?', [sess.user_info.id], (err, results) => {
+            if (err) throw err;
+            rentals = results;
+
+            db.query('SELECT cr.id, cl.name as classroom_name, cr.classroom_id, cr.member_id, cr.date, cr.rental_start_time, cr.rental_end_time, cr.reason FROM classroom_rental_waiting as cr, classroom as cl WHERE cl.id = cr.classroom_id AND cr.member_id=?', [sess.user_info.id], (err, results) => {
+                if (err) throw err;
+                rental_waitings = results;
+
+                res.render('classroom_check.pug', {
+                    query: req.query,
+                    'rentals': rentals,
+                    'rental_waitings': rental_waitings
+                });
+            });
         });
     });
     app.get('/equipment_inquiry', (req, res) => {
@@ -338,6 +343,55 @@ module.exports = function (app) {
                     }
                 });
             }
+        });
+    });
+    app.post('/classroom_check', (req, res) => {
+        console.log(req.body);
+
+        const rental_id = req.body.rental_id;
+        const date = req.body.date;
+        const classroom_id = req.body.classroom_id;
+        const start_time = req.body.rental_start_time;
+        const end_time = req.body.rental_end_time;
+
+        db.query('DELETE FROM classroom_rental WHERE id=? AND 1=0', [rental_id], (err, results) => {
+            if (err) throw err;
+
+            //check waiting lists
+            db.query('SELECT mb.email FROM classroom_rental_waiting as cr, member as mb WHERE cr.rental_end_time >= ? AND cr.rental_start_time <= ? AND cr.date = ? AND cr.classroom_id = ? AND cr.member_id = mb.id',
+                [start_time, end_time, date, classroom_id], (err, results) => {
+                if (err) throw err;
+                console.log("emails: ", results);
+
+                //waiting exists
+                if (results.length !== 0) {
+                    //send mail
+                    let emails = [];
+                    for (const row in results) {
+                        emails.push(results[row].email);
+                    }
+
+                    let mailOptions = {
+                        from: "KHURS administrator <kcm880825@gmail.com>",
+                        bcc: emails,
+                        subject: '강의실 공석이 발생했습니다',
+                        text: date+'일 '+start_time+"~"+end_time+"에 예약된 강의실 대여가 취소되었습니다. KHURS 홈페이지에서 공석을 확인해주세요"
+                    };
+                    transporter.sendMail(mailOptions, (err, response) => {
+                        if (err) throw err;
+                        console.log(response);
+                        transporter.close();
+                    });
+                }
+
+                res.redirect(url.format({
+                    pathname: '/classroom_check',
+                    query: {
+                        'success': true,
+                        'message': 'Canceled successfully.'
+                    }
+                }));
+            });
         });
     });
 };
