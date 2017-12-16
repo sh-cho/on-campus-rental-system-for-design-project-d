@@ -3,3 +3,64 @@ block title
     title KHURS Classroom Reserve
 block content
     h1 Classroom Reserve Page
+    p
+        i.fa.fa-list(aria-hidden='true')
+        |  Go to&nbsp;
+        a(href='/classroom_inquiry') inquiry page
+    hr
+
+    if query.success === 'true'
+        div.alert.alert-success.alert-dismissible.fade.show(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+            | #{query.message}
+        hr
+    else if query.success === 'false'
+        div.alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+            | #{query.message}
+        hr
+
+    form(action='/classroom_reserve', method='post')
+        div.form-group.row
+            label.col-2.col-form-label(for='date-input') Date
+            div.col-10
+                input.form-control#date-input(name='date', type='date', required)
+
+        div.form-group.row
+            label.col-2.col-form-label(for='classroomnumber') Classroom Number
+            div.col-10
+                select.custom-select#classroomnumber(name='classroomnumber', required)
+                    option(value='1') B05
+                    option(value='2') 211-1
+                    option(value='3') B11
+                    option(value='4') 205
+                    option(value='5') 221
+                    option(value='6') 219
+                    option(value='7') 101
+                    option(value='11') 136
+                    option(value='12') 103
+                    option(value='13') B01
+                    option(value='14') B07
+
+        div.form-group.row
+            label.col-2.col-form-label(for='start-time') Start time
+            div.col-10
+                input.form-control#start-time(name="starttime", type="time", step="1800", required)
+
+        div.form-group.row
+            label.col-2.col-form-label(for='end-time') End time
+            div.col-10
+                input.form-control#end-time(name="endtime", type="time", step="1800", required)
+
+        div.form-group.row
+            label.col-2.col-form-label(for='reason') Reason
+            div.col-10
+                input.form-control#reason(name='reason', type='text', required)
+                p.form-text.text-muted Write down the purpose of the rental in detail. 대여 목적을 자세히 적어주세요.
+
+        button.btn.btn-primary(type='submit') Reserve
+    hr
+
+    //p !{JSON.stringify(query)}

@@ -3,7 +3,12 @@ block title
     title KHURS Classroom Inquiry
 block content
     h1 Classroom Inquiry Page
+    p
+        i.fa.fa-book(aria-hidden='true')
+        |  Go to&nbsp;
+        a(href='/classroom_reserve') reserve page
     hr
+
 
     form(action='/classroom_inquiry', method='post')
         div.form-group.row
@@ -43,6 +48,23 @@ block content
                                 -}
                             -}
                         -}
+                        -if (!found) {
+                            -if (rentals) {
+                                -for (const rental of rentals) {
+                                    -if (rental.classroom_id===classroom.id && rental.rental_start_time===current_time) {
+                                        -var hour_diff = Number(rental.rental_end_time.substr(0, 2))-Number(rental.rental_start_time.substr(0, 2));
+                                        -var end_in_30 = rental.rental_end_time.substr(3, 2)==="30";
+                                        -var colspan_len = hour_diff*2+(end_in_30?1:0);
+                                        div.cell.cell-reserved(data-colspan=colspan_len) #{rental.reason}
+                                        -found = true;
+                                        -i = i + (colspan_len-1);
+                                        -break;
+                                    -}
+                                -}
+                            -}
+                        -}
+
+                        //- if still not found
                         -if (!found)
                             div.cell.cell-empty(data-colspan=1)
                     -}

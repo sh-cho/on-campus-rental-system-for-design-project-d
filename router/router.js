@@ -3,6 +3,8 @@ module.exports = function (app) {
     const bcrypt = require('bcrypt-nodejs');
     const db = require('../db');
     const url = require('url');
+    const nodemailer = require('nodemailer');
+    const mailconfig = require('../config/mail-config.json');
 
     //vars
     let classrooms = [];
@@ -12,6 +14,22 @@ module.exports = function (app) {
         if (err) throw err;
         classrooms = results;
     });
+
+    // let transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: mailconfig
+    // });
+    // let mailOptions = {
+    //     from: "KHURS administrator <kcm880825@gmail.com>",
+    //     to: 'seonghyeoncho96@khu.ac.kr',
+    //     subject: 'nodemailer 테스트',
+    //     text: '평문 보내기 테스트 123'
+    // };
+    // transporter.sendMail(mailOptions, (err, response) => {
+    //     if (err) throw err;
+    //     console.log(response);
+    //     transporter.close();
+    // });
 
 
 
@@ -28,12 +46,18 @@ module.exports = function (app) {
 
     app.get('/classroom_inquiry', (req, res) => {
         const sess = req.session;
+        if (!sess.user_info) {
+            res.redirect('/');
+        }
+
         let lectures = sess.lectures;
+        let rentals = sess.rentals;
         let inquiry_requested = sess.inquiry_requested;
         let inquiry_date = sess.inquiry_date;
 
         //remove session var
         req.session.lectures = null;
+        req.session.rentals = null;
         req.session.inquiry_requested = null;
         req.session.inquiry_date = null;
 
@@ -42,24 +66,54 @@ module.exports = function (app) {
             'inquiry_date': inquiry_date,
             'classrooms': classrooms,
             'lectures': lectures,
-            'rentals': null
+            'rentals': rentals
         });
     });
     app.get('/classroom_reserve', (req, res) => {
+        const sess = req.session;
+        if (!sess.user_info) {
+            res.redirect('/');
+            return;
+        }
+
         res.render('classroom_reserve.pug', {
             query: req.query
         });
     });
+    app.get('/classroom_check', (req, res) => {
+        const sess = req.session;
+        if (!sess.user_info) {
+            res.redirect('/');
+            return;
+        }
+
+        res.render('classroom_check.pug', {
+            query: req.query
+        });
+    });
     app.get('/equipment_inquiry', (req, res) => {
+        const sess = req.session;
+        if (!sess.user_info) {
+            res.redirect('/');
+            return;
+        }
+
         res.render('equipment_inquiry.pug', {
             query: req.query
         });
     });
     app.get('/equipment_reserve', (req, res) => {
+        const sess = req.session;
+        if (!sess.user_info) {
+            res.redirect('/');
+            return;
+        }
+
         res.render('equipment_reserve.pug', {
             query: req.query
         });
     });
+
 
     app.get('/signup', (req, res) => {
         res.render('signup.pug');
@@ -67,6 +121,12 @@ module.exports = function (app) {
     app.get('/main', (req, res) => {
         //DEBUG: session 변수 전부 출력
         const sess = req.session;
+        if (!sess.user_info) {
+            //not logined
+            res.redirect('/');
+            return;
+        }
+
         res.render('main.pug', {
             session: sess
         });
@@ -101,7 +161,7 @@ module.exports = function (app) {
 
         //유저 찾기
         // req.session.user_idx = 1;
-        db.query('SELECT * FROM `member` WHERE `email` = ?', [email], (err, result) => {
+        db.query('SELECT * FROM `member` WHERE `email` = ? LIMIT 1', [email], (err, result) => {
             if (err) throw err;
             console.log(result);
 
@@ -140,7 +200,7 @@ module.exports = function (app) {
         const id = req.body.id;
         const password = req.body.password;
 
-        db.query('SELECT * FROM `member` WHERE `email` = ?', [email], (err, result) => {
+        db.query('SELECT * FROM `member` WHERE `email` = ? LIMIT 1', [email], (err, result) => {
             if (err) throw err;
             console.log("before insert");
 
@@ -176,13 +236,15 @@ module.exports = function (app) {
         const date = new Date(req.body.date);
         const day = date.getDay();
         const sess = req.session;
+
         let lectures = [];
+        let rentals = [];
 
         console.log("date: ", date);
         console.log("day: ", day);
 
         sess.inquiry_requested = true;
-        sess.inquiry_date = date.toISOString().slice(0, 10);
+        sess.inquiry_date = date.toISOString().slice(0, 10);    //ex) "2017-12-21"
 
         if (day===0 || day===6) {
             //pass
@@ -190,13 +252,92 @@ module.exports = function (app) {
             res.redirect('/classroom_inquiry');
         } else {
             db.query('SELECT * FROM `lecture` WHERE day_of_the_week & ?', [Math.pow(2, 5-day)], (err, results) => {
-                console.log("res: ", results);
-                console.log(typeof(results));
-                lectures = results;
+                if (err) throw err;
 
+                console.log("lectures: ", results);
+
+                lectures = results;
                 sess.lectures = lectures;
-                res.redirect('/classroom_inquiry');
+
+                db.query('SELECT * FROM `classroom_rental` WHERE date=?', [sess.inquiry_date], (err, results) => {
+                    if (err) throw err;
+
+                    console.log("rentals: ", results);
+
+                    rentals = results;
+                    sess.rentals = rentals;
+
+                    res.redirect('/classroom_inquiry');
+                });
             });
         }
+    });
+    app.post('/classroom_reserve', (req, res) => {
+        const sess = req.session;
+
+        console.log(req.body);
+        console.log(sess.user_info);
+
+        const date = req.body.date;
+        const day = (new Date(date)).getDay();
+
+        const classroomnumber = req.body.classroomnumber;
+        const start_time = req.body.starttime + ":00";
+        const end_time = req.body.endtime + ":00";
+        const reason = req.body.reason;
+
+
+
+        //check if duplicated lecture is exist
+        db.query('SELECT * FROM lecture WHERE lecture_end_time>=? AND lecture_start_time<=? AND day_of_the_week & ? AND classroom_id=? LIMIT 1',
+            [start_time, end_time, Math.pow(2, 5-day), classroomnumber], (err, results) => {
+            if (err) throw err;
+
+            if (results.length !== 0) {
+                res.redirect(url.format({
+                    pathname: '/classroom_reserve',
+                    query: {
+                        'success': false,
+                        'message': 'Rental failed. It is already rented by lecture.'
+                    }
+                }));
+            } else {
+                //check if duplicated rental is exist
+                //--> if (A.end_time >= B.start_time && A.start_time <= B.end_time)
+                db.query('SELECT * FROM classroom_rental WHERE rental_end_time>=? AND rental_start_time<=? AND date=? AND classroom_id=? LIMIT 1',
+                    [start_time, end_time, date, classroomnumber], (err, results) => {
+                    console.log(results);
+                    if (results.length === 0) {
+                        //add to rental list
+                        db.query('INSERT INTO classroom_rental (id, member_id, classroom_id, date, rental_start_time, rental_end_time, reason) VALUES (null, ?, ?, ?, ?, ?, ?)',
+                            [sess.user_info.id, classroomnumber, date, start_time, end_time, reason], (err, results) => {
+                            if (err) throw err;
+
+                            res.redirect(url.format({
+                                pathname: '/classroom_reserve',
+                                query: {
+                                    'success': true,
+                                    'message': 'Rental has been completed.'
+                                }
+                            }));
+                        });
+                    } else {
+                        //add to waiting list
+                        db.query('INSERT INTO classroom_rental_waiting (id, member_id, classroom_id, date, rental_start_time, rental_end_time, reason) VALUES (null, ?, ?, ?, ?, ?, ?)',
+                            [sess.user_info.id, classroomnumber, date, start_time, end_time, reason], (err, results) => {
+                            if (err) throw err;
+
+                            res.redirect(url.format({
+                                pathname: '/classroom_reserve',
+                                query: {
+                                    'success': false,
+                                    'message': "It's already reserved by someone else. You are registered on the waiting list."
+                                }
+                            }));
+                        });
+                    }
+                });
+            }
+        });
     });
 };
