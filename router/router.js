@@ -89,6 +89,7 @@ module.exports = function (app) {
                 rental_waitings = results;
 
                 res.render('classroom_check.pug', {
+                    session: sess,
                     query: req.query,
                     'rentals': rentals,
                     'rental_waitings': rental_waitings
@@ -126,6 +127,7 @@ module.exports = function (app) {
         }
 
         res.render('equipment_check.pug', {
+            session: sess,
             query: req.query
         });
     });

@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dc900f9-faf8-49a5-8791-8a34539d3168" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/css/jquery.tagit.css" afterPath="" />
       <change beforePath="$PROJECT_DIR$/router/router.js" afterPath="$PROJECT_DIR$/router/router.js" />
       <change beforePath="$PROJECT_DIR$/views/classroom_check.pug" afterPath="$PROJECT_DIR$/views/classroom_check.pug" />
-      <change beforePath="$PROJECT_DIR$/views/classroom_inquiry.pug" afterPath="$PROJECT_DIR$/views/classroom_inquiry.pug" />
-      <change beforePath="$PROJECT_DIR$/views/equipment_inquiry.pug" afterPath="$PROJECT_DIR$/views/equipment_inquiry.pug" />
-      <change beforePath="$PROJECT_DIR$/views/equipment_reserve.pug" afterPath="$PROJECT_DIR$/views/equipment_reserve.pug" />
-      <change beforePath="$PROJECT_DIR$/views/layout.pug" afterPath="$PROJECT_DIR$/views/layout.pug" />
+      <change beforePath="$PROJECT_DIR$/views/equipment_check.pug" afterPath="$PROJECT_DIR$/views/equipment_check.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,21 +20,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="router.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/router/router.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="824">
-                  <caret line="184" column="7" lean-forward="true" selection-start-line="184" selection-start-column="7" selection-end-line="184" selection-end-column="7" />
+                <state relative-caret-position="577">
+                  <caret line="162" column="42" lean-forward="true" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin.pug" pinned="false" current-in-tab="true">
+          <file leaf-file-name="admin.pug" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/admin.pug">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="858">
-                  <caret line="126" column="275" lean-forward="true" selection-start-line="126" selection-start-column="275" selection-end-line="126" selection-end-column="275" />
+                <state relative-caret-position="2299">
+                  <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -48,8 +43,8 @@
           <file leaf-file-name="equipment_check.pug" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/equipment_check.pug">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="627">
-                  <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+                <state relative-caret-position="304">
+                  <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -68,8 +63,8 @@
           <file leaf-file-name="main.pug" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/main.pug">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="57">
-                  <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+                <state relative-caret-position="494">
+                  <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -102,8 +97,8 @@
           <file leaf-file-name="classroom_check.pug" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/classroom_check.pug">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+                <state relative-caret-position="475">
+                  <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -165,7 +160,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>andSelf</find>
       <find>app.users</find>
       <find>login</find>
       <find>app.</find>
@@ -179,7 +173,6 @@
       <find>req.sess</find>
       <find>query</find>
       <find>url.format</find>
-      <find>user_info</find>
       <find>number</find>
       <find>inquiry</find>
       <find>rentals:</find>
@@ -193,8 +186,10 @@
       <find>signin</find>
       <find>Classroom</find>
       <find>re</find>
-      <find>classroom</find>
       <find>admin</find>
+      <find>classroom</find>
+      <find>user_info</find>
+      <find>main</find>
     </findStrings>
     <replaceStrings>
       <replace>data-colspan</replace>
@@ -249,11 +244,11 @@
         <option value="$PROJECT_DIR$/views/layout.pug" />
         <option value="$PROJECT_DIR$/views/classroom_inquiry.pug" />
         <option value="$PROJECT_DIR$/views/equipment_inquiry.pug" />
-        <option value="$PROJECT_DIR$/views/classroom_check.pug" />
         <option value="$PROJECT_DIR$/views/equipment_reserve.pug" />
-        <option value="$PROJECT_DIR$/views/equipment_check.pug" />
-        <option value="$PROJECT_DIR$/router/router.js" />
         <option value="$PROJECT_DIR$/views/admin.pug" />
+        <option value="$PROJECT_DIR$/views/equipment_check.pug" />
+        <option value="$PROJECT_DIR$/views/classroom_check.pug" />
+        <option value="$PROJECT_DIR$/router/router.js" />
       </list>
     </option>
   </component>
@@ -407,12 +402,12 @@
       <workItem from="1512975339061" duration="6397000" />
       <workItem from="1512982026167" duration="15251000" />
       <workItem from="1513150399100" duration="2974000" />
-      <workItem from="1513369024754" duration="50595000" />
+      <workItem from="1513369024754" duration="51557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163252000" />
+    <option name="totallyTimeSpent" value="164214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
@@ -717,30 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/main.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/equipment_check.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="184" column="7" lean-forward="true" selection-start-line="184" selection-start-column="7" selection-end-line="184" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/equipment_inquiry.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
@@ -749,18 +720,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/classroom_check.pug">
+    <entry file="file://$PROJECT_DIR$/views/main.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        <state relative-caret-position="494">
+          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/equipment_check.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="126" column="275" lean-forward="true" selection-start-line="126" selection-start-column="275" selection-end-line="126" selection-end-column="275" />
+        <state relative-caret-position="2299">
+          <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/classroom_check.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="162" column="42" lean-forward="true" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
           <folding />
         </state>
       </provider>

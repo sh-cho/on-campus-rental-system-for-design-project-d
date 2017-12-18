@@ -23,6 +23,12 @@ block content
             | #{query.message}
         hr
 
+    p User Information
+        ul
+            li ID: #{session.user_info.id}
+            li Email: #{session.user_info.email}
+    hr
+
     h3 Reservations
     h6.text-muted 예약 목록
 
