@@ -1,8 +1,75 @@
 extends ./layout.pug
 block title
-    title KHURS Inquiry
+    title KHURS Equipment Inquiry
+block inline_css
+    style(type='text/css').
+        .table th {
+            text-align: center;
+        }
 block content
-    p inquiry page
-    ul
-    - for (var i=0; i<100; i++)
-        li test #{i}
+    h1 Equipment Inquiry Page
+    p
+        i.fa.fa-book(aria-hidden='true')
+        |  Go to&nbsp;
+        a(href='/equipment_reserve') reserve page
+    hr
+
+
+    //form(action='/equipment_inquiry', method='post')
+    //    //div.form-group.row
+    //    //    label.col-2.col-form-label(for='date-input') Date
+    //    //    div.col-10
+    //    //        input.form-control#date-input(name='date', type='date', required)
+    //
+    //    button.btn.btn-primary(type='submit') Inquiry
+    //hr
+
+    //if inquiry_requested
+    //    h4 Inquiry Date: !{inquiry_date}
+    if true
+        h4 Inquiry Time: #{new Date()}
+        table.table.table-bordered
+            thead.thead-default
+                tr
+                    th id
+                    th name
+                    th equipment_uuid
+                    th status
+            tbody
+                tr
+                    td 1
+                    td iPad 5세대
+                    td 3acac187-a20b-4e3d-befa-c6d855800132
+                    td 대여중<br>(~2017/12/25 15:00)
+                tr
+                    td 2
+                    td iPad 5세대
+                    td 5027a6b2-d54a-4084-84cf-42e3304977bb
+                    td 대여 가능
+                tr
+                    td 3
+                    td iPad mini 4
+                    td d4069f16-1905-495e-9680-8f56bcb2dcfb
+                    td 대여중<br>(~2017/12/31 18:00)
+                tr
+                    td 4
+                    td Microsoft Surface Pro 5세대
+                    td d1f7c50f-298f-4d68-933c-22f94afa13d8
+                    td 대여 가능
+                tr
+                    td 5
+                    td 노트북 (삼성)
+                    td dfe35ae8-9055-4379-b21e-60a57738a4a2
+                    td 대여중<br>(~2017/12/24 09:00)
+                tr
+                    td 11
+                    td MacBook Air (7,2)
+                    td 4b1c89a8-19b7-465e-b7b3-42970ec554d5
+                    td 대여 가능
+                tr
+                    td 13
+                    td 노트북 (삼성)
+                    td d2acc9da-8991-499c-bf7a-298bd6970c71
+                    td 대여 가능
+
+    hr

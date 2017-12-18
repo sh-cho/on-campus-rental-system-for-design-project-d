@@ -1,8 +1,76 @@
 extends ./layout.pug
 block title
-    title KHURS Inquiry
+    title KHURS Equipment Reserve
 block content
-    p inquiry page
-    ul
-    - for (var i=0; i<100; i++)
-        li test #{i}
+    h1 Equipment Reserve Page
+    p
+        i.fa.fa-list(aria-hidden='true')
+        |  Go to&nbsp;
+        a(href='/equipment_inquiry') inquiry page
+    hr
+    //
+    //if query.success === 'true'
+    //    div.alert.alert-success.alert-dismissible.fade.show(role='alert')
+    //        button.close(type='button', data-dismiss='alert', aria-label='Close')
+    //            span(aria-hidden='true') &times;
+    //        | #{query.message}
+    //    hr
+    //else if query.success === 'false'
+    //    div.alert.alert-warning.alert-dismissible.fade.show(role='alert')
+    //        button.close(type='button', data-dismiss='alert', aria-label='Close')
+    //            span(aria-hidden='true') &times;
+    //        | #{query.message}
+    //    hr
+
+    if false
+        div.alert.alert-success.alert-dismissible.fade.show(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+            | Equipment rental completed.
+        hr
+    else if query.success === 'false'
+        div.alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+            | #{query.message}
+        hr
+
+    form(action='/equipment_reserve', method='post')
+        //div.form-group.row
+        //    label.col-2.col-form-label(for='date-input') Date
+        //    div.col-10
+        //        input.form-control#date-input(name='date', type='date', required)
+
+        div.form-group.row
+            label.col-2.col-form-label(for='equipmentname') Equipment name
+            div.col-10
+                select.custom-select#equipmentname(name='equipmentname', required)
+                    option(value='1') 1 (iPad 5세대)
+                    option(value='2') 2 (iPad 5세대)
+                    option(value='3') 3 (iPad mini 4)
+                    option(value='4') 4 (Microsoft Surface Pro 5세대)
+                    option(value='5') 5 (노트북 (삼성))
+                    option(value='11') 11 (MacBook Air (7,2))
+                    option(value='13') 13 (노트북 (삼성))
+
+
+        div.form-group.row
+            label.col-2.col-form-label(for='start-time') Start time
+            div.col-10
+                input.form-control#start-time(name="starttime", type="datetime-local", step="1800", required)
+
+        div.form-group.row
+            label.col-2.col-form-label(for='end-time') End time
+            div.col-10
+                input.form-control#end-time(name="endtime", type="datetime-local", step="1800", required)
+
+        div.form-group.row
+            label.col-2.col-form-label(for='reason') Reason
+            div.col-10
+                input.form-control#reason(name='reason', type='text', required)
+                p.form-text.text-muted Write down the purpose of the rental in detail. 대여 목적을 자세히 적어주세요.
+
+        button.btn.btn-primary(type='submit') Reserve
+    hr
+
+    //p !{JSON.stringify(query)}

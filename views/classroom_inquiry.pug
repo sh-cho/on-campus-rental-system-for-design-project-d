@@ -16,6 +16,13 @@ block content
             div.col-10
                 input.form-control#date-input(name='date', type='date', required)
 
+        div.form-group.row
+            label.col-2.col-form-label(for='search-option') Option
+            div.col-10
+                //input.form-control#search-option(name='options', type='date')
+                    <ul id="languages" class="fake-input" tabindex="1"></ul>
+                ul.form-group.fake-input#search-option
+
         button.btn.btn-primary(type='submit') Inquiry
     hr
 
@@ -34,6 +41,7 @@ block content
                     div.cell.cell-header !{classroom.name}
                     -for (var i=0; i<48; i++) {
                         -var current_time = Math.floor(i/2)+":"+(i%2===0?"00":"30")+":00";
+                        -if (current_time.length===7) current_time = "0"+current_time;
                         -var found = false;
                         -if (lectures) {
                             -for (const lecture of lectures) {
@@ -69,9 +77,13 @@ block content
                             div.cell.cell-empty(data-colspan=1)
                     -}
 
-
-
     hr
+block inline_script
+    script.
+        var tags = ['desk, chairs', 'computer', 'projector', 'white board', 'black board', 'microphone',
+        'laser pointer', 'printer', 'scanner', '3d-printer', 'air conditioner', 'webcam'];
+        $("#search-option").tagit({'tags': tags});
+
     //h3 debug query
     //pre !{JSON.stringify(classrooms)}
     //pre !{JSON.stringify(lectures)}

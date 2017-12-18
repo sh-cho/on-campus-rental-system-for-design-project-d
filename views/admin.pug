@@ -1,0 +1,134 @@
+extends ./layout.pug
+block title
+    title KHURS admin page
+block inline_css
+    style(type='text/css').
+        div.chart-area {
+            text-align: center;
+        }
+block content
+    h1 KHURS administrator page
+    hr
+
+    h3 Classroom Reservations
+    h6.text-muted 강의실 예약 목록
+    if rentals
+        table.table.table-bordered
+            thead.thead-default
+                tr
+                    th id
+                    th date
+                    th classroom name
+                    th rental start time
+                    th rental end time
+                    th reason
+            tbody
+                each rental in rentals
+                    tr
+                        td #{rental.id}
+                        td #{rental.date.toISOString().slice(0, 10)}
+                        td #{rental.classroom_name}
+                        td #{rental.rental_start_time}
+                        td #{rental.rental_end_time}
+                        td #{rental.reason}
+    else
+        p No results.
+    hr
+
+    h3 Classroom Waitings
+    h6.text-muted 강의실 예약 대기 목록
+    if rental_waitings
+        table.table.table-bordered
+            thead.thead-default
+                tr
+                    th id
+                    th date
+                    th classroom name
+                    th rental start time
+                    th rental end time
+                    th reason
+            tbody
+                each rental in rental_waitings
+                    tr
+                        td #{rental.id}
+                        td #{rental.date.toISOString().slice(0, 10)}
+                        td #{rental.classroom_name}
+                        td #{rental.rental_start_time}
+                        td #{rental.rental_end_time}
+                        td #{rental.reason}
+    else
+        p No results.
+    hr
+
+    h3 Equipment Reservations
+    h6.text-muted 장비 예약 목록
+    table.table.table-bordered
+        thead.thead-default
+            tr
+                th id
+                th name
+                th 대여자 id
+                th equipment_uuid
+                th status
+        tbody
+            tr
+                td 1
+                td iPad 5세대
+                td 2014104150
+                td 3acac187-a20b-4e3d-befa-c6d855800132
+                td 대여중<br>(~2017/12/25 15:00)
+            tr
+                td 2
+                td iPad 5세대
+                td -
+                td 5027a6b2-d54a-4084-84cf-42e3304977bb
+                td 대여 가능
+            tr
+                td 3
+                td iPad mini 4
+                td 2015104120
+                td d4069f16-1905-495e-9680-8f56bcb2dcfb
+                td 대여중<br>(~2017/12/31 18:00)
+            tr
+                td 4
+                td Microsoft Surface Pro 5세대
+                td -
+                td d1f7c50f-298f-4d68-933c-22f94afa13d8
+                td 대여 가능
+            tr
+                td 5
+                td 노트북 (삼성)
+                td 2016104109
+                td dfe35ae8-9055-4379-b21e-60a57738a4a2
+                td 대여중<br>(~2017/12/24 09:00)
+            tr
+                td 11
+                td MacBook Air (7,2)
+                td -
+                td 4b1c89a8-19b7-465e-b7b3-42970ec554d5
+                td 대여 가능
+            tr
+                td 13
+                td 노트북 (삼성)
+                td -
+                td d2acc9da-8991-499c-bf7a-298bd6970c71
+                td 대여 가능
+    hr
+
+    h3 Equipment Waitings
+    h6.text-muted 장비 예약 대기 목록
+    p No results.
+    hr
+
+    h3 Statistics
+    //통계
+    div.chart-area
+        .
+            <iframe width="638" height="394" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRIyymLjBcQ2QVEU2NBW_2yXZy5vYbrf2Geb9ZTRcgoOH5fFn22uk1fae2xIznBNf6w7C6pTpAOA1Yp/pubchart?oid=1183430371&amp;format=interactive"></iframe>
+    hr
+
+    p.text-muted It is the data confirmed on #{new Date()}, please contact the administrative office (032-201-2501) for details.
+    hr
+
+    //h1 debug
+    //p !{JSON.stringify(rentals)}

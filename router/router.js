@@ -118,6 +118,17 @@ module.exports = function (app) {
             query: req.query
         });
     });
+    app.get('/equipment_check', (req, res) => {
+        const sess = req.session;
+        if (!sess.user_info) {
+            res.redirect('/');
+            return;
+        }
+
+        res.render('equipment_check.pug', {
+            query: req.query
+        });
+    });
 
 
     app.get('/signup', (req, res) => {
@@ -134,6 +145,30 @@ module.exports = function (app) {
 
         res.render('main.pug', {
             session: sess
+        });
+    });
+    app.get('/admin', (req, res) => {
+        // res.render('admin.pug');
+        let rentals = [];
+        let rental_waitings = [];
+
+        db.query('SELECT cr.id, cl.name as classroom_name, cr.classroom_id, cr.member_id, cr.date, cr.rental_start_time, cr.rental_end_time, cr.reason FROM classroom_rental as cr, classroom as cl WHERE cl.id = cr.classroom_id', [], (err, results) => {
+            if (err) throw err;
+            rentals = results;
+
+            db.query('SELECT cr.id, cl.name as classroom_name, cr.classroom_id, cr.member_id, cr.date, cr.rental_start_time, cr.rental_end_time, cr.reason FROM classroom_rental_waiting as cr, classroom as cl WHERE cl.id = cr.classroom_id', [], (err, results) => {
+                if (err) throw err;
+                rental_waitings = results;
+
+                // console.log(rentals);
+                // console.log(rental_waitings);
+
+                res.render('admin.pug', {
+                    query: req.query,
+                    'rentals': rentals,
+                    'rental_waitings': rental_waitings
+                });
+            });
         });
     });
 
@@ -195,7 +230,13 @@ module.exports = function (app) {
 
                     //세션에 유저 정보 저장
                     req.session.user_info = result[0];
-                    res.redirect('/main');
+
+                    //admin check
+                    if (req.session.user_info.type===1) {
+                        res.redirect('/main');
+                    } else {
+                        res.redirect('/admin');
+                    }
                 }
             }
         });
